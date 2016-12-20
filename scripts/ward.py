@@ -26,7 +26,7 @@ def filter(data): #filter program output to get only desired info
 	for match in matches:
 		macAddrs.append({'ip':match[0], 'macaddr':match[1]})
 
-arpScan = subprocess.Popen('sudo arp-scan -I wlan0 -l -O ' + here + '/ieee-oui.txt', shell=True, stdout=subprocess.PIPE)
+arpScan = subprocess.Popen('sudo arp-scan -g -I wlan0 -l -O ' + here + '/ieee-oui.txt', shell=True, stdout=subprocess.PIPE)
 
 monitor(arpScan)
 
