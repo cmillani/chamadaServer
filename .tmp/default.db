@@ -1,0 +1,138 @@
+{
+  "data": {
+    "devices": [
+      {
+        "ip": "192.168.2.1",
+        "macaddr": "20:aa:4b:a9:bb:06",
+        "createdAt": "2016-12-20T16:59:23.496Z",
+        "updatedAt": "2016-12-20T16:59:23.496Z",
+        "id": 1
+      },
+      {
+        "ip": "192.168.2.132",
+        "macaddr": "88:1f:a1:e6:f2:a5",
+        "createdAt": "2016-12-20T16:59:23.504Z",
+        "updatedAt": "2016-12-20T16:59:23.504Z",
+        "id": 2
+      },
+      {
+        "ip": "192.168.2.139",
+        "macaddr": "34:36:3b:c3:e6:1a",
+        "createdAt": "2016-12-20T16:59:23.519Z",
+        "updatedAt": "2016-12-20T16:59:23.519Z",
+        "id": 3
+      },
+      {
+        "ip": "192.168.2.118",
+        "macaddr": "5c:c9:d3:32:db:72",
+        "createdAt": "2016-12-20T16:59:23.535Z",
+        "updatedAt": "2016-12-20T16:59:23.535Z",
+        "id": 4
+      },
+      {
+        "ip": "192.168.2.135",
+        "macaddr": "94:39:e5:ef:8e:b1",
+        "createdAt": "2016-12-20T16:59:23.550Z",
+        "updatedAt": "2016-12-20T16:59:23.550Z",
+        "id": 5
+      },
+      {
+        "ip": "192.168.2.124",
+        "macaddr": "5c:93:a2:d6:df:6b",
+        "createdAt": "2016-12-20T16:59:23.565Z",
+        "updatedAt": "2016-12-20T16:59:23.565Z",
+        "id": 6
+      }
+    ],
+    "logs": [],
+    "users": [
+      {
+        "name": "Cadu",
+        "macaddr": "34:36:3b:c3:e6:1a",
+        "token": "huehue",
+        "createdAt": "2016-12-20T17:11:27.312Z",
+        "updatedAt": "2016-12-20T17:11:27.312Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "devices": {
+      "ip": {
+        "type": "string"
+      },
+      "macaddr": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "logs": {
+      "macaddr": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "in",
+          "out"
+        ]
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "users": {
+      "name": {
+        "type": "string"
+      },
+      "macaddr": {
+        "type": "string",
+        "unique": true
+      },
+      "token": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "devices": {
+      "id": 6
+    },
+    "users": {
+      "id": 1
+    },
+    "logs": {}
+  }
+}

@@ -9,10 +9,11 @@ var debug = require('debug')('chamada-server:server');
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
+var models = require(__dirname + '/../models');
 
 var options = {
-	key: fs.readFileSync('key.pem'),
-	cert: fs.readFileSync('cert.pem'),
+	key: fs.readFileSync('keySSL.pem'),
+	cert: fs.readFileSync('certSSL.pem'),
 	ciphers: [
 		"ECDHE-RSA-AES256-SHA384",
 		"DHE-RSA-AES256-SHA384",
@@ -50,10 +51,15 @@ var HTTPSserver = https.createServer(options, app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+models.waterline.initialize(models.config, function(err, models) {
+	if (err) throw err;
+	app.models = models.collections;
+	app.connections = models.connections;
 
-HTTPSserver.listen(5000);
-HTTPSserver.on('error', onError);
-HTTPSserver.on('listening', onListening);
+	HTTPSserver.listen(5000);
+	HTTPSserver.on('error', onError);
+	HTTPSserver.on('listening', onListening);
+})
 
 /**
  * Normalize a port into a number, string, or false.
